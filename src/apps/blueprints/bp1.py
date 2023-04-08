@@ -12,9 +12,7 @@ from sanic import json
 bp = Blueprint(name="bp1", url_prefix="/bp")
 
 
-
-
-
 @bp.get("/index")
 async def index(request):
     return json({"key": "bp1"})
+

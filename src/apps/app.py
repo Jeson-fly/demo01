@@ -8,8 +8,8 @@
 """
 from sanic import Sanic
 from sanic import json
-from views.author import AuthorHttpMethod
-
+from views.view01 import AuthorHttpMethod
+from blueprints.bp1 import bp
 app = Sanic(name="my_dev")
 
 
@@ -64,9 +64,8 @@ async def before_request_handler(request):
 @app.middleware("request")
 async def before_request_handler(request):
     """"""
-
+app.blueprint(bp)
 
 app.add_route(AuthorHttpMethod.as_view(), "/author", version="/v1", )
-
 if __name__ == '__main__':
     app.run(debug=True, auto_reload=True)

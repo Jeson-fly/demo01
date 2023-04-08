@@ -12,7 +12,14 @@ from sanic import json
 
 
 class AuthorHttpMethod(HTTPMethodView):
+    decorators = []
 
     async def get(self, request: Request):
         args = request.args
         return json({"key": "author view", "args": args})
+
+    async def post(self, request: Request):
+        """post请求"""
+
+    async def put(self,request:Request):
+        """put请求"""
